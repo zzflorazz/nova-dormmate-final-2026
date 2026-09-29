@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DormMate 宿舍环境助手</title>
+    <!-- 引入样式表 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 页面主容器，使用语义化标签组织内容 -->
+    <main>
+        <!-- 页面标题 -->
+        <h1>DormMate 宿舍环境助手</h1>
+
+        <!-- 环境数据输入表单 -->
+        <section>
+            <!-- 温度输入 -->
+            <label for="temperature">温度</label>
+            <input type="number" id="temperature" placeholder="请输入温度（℃）">
+
+            <!-- 湿度输入 -->
+            <label for="humidity">湿度</label>
+            <input type="number" id="humidity" placeholder="请输入湿度（%）">
+
+            <!-- 分析按钮 -->
+            <button type="button" id="analyze-btn">分析环境</button>
+
+            <!-- 朗读状态按钮 -->
+            <button type="button" id="speakBtn">朗读状态</button>
+
+            <!-- 语音指令按钮 -->
+            <button type="button" id="voiceBtn">语音指令</button>
+        </section>
+
+        <!-- 结果显示区，初始为空，由后续 JS 填充 -->
+        <section id="result"></section>
+
+        <!-- 历史记录区 -->
+        <section id="history">
+            <div class="history-header">
+                <h2>历史记录</h2>
+                <!-- 导出 CSV 按钮 -->
+                <button type="button" id="exportBtn">导出 CSV</button>
+            </div>
+        </section>
+
+        <!-- 摄像头拍照区 -->
+        <section id="camera">
+            <h2>拍照</h2>
+            <!-- 开启摄像头 -->
+            <button type="button" id="cameraBtn">开启摄像头</button>
+            <!-- 拍照 -->
+            <button type="button" id="snapBtn">拍照</button>
+            <!-- 摄像头预览 -->
+            <video id="video" autoplay playsinline></video>
+            <!-- 快照画布（不显示，仅用于保存当前帧） -->
+            <canvas id="canvas" hidden></canvas>
+            <!-- 拍下的照片 -->
+            <img id="snapshot" alt="拍照快照">
+        </section>
+    </main>
+
+    <!-- 引入脚本，放在页面底部以便 DOM 加载完成后执行 -->
+    <script src="script.js"></script>
+</body>
+</html>

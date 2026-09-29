@@ -1,0 +1,166 @@
+/* 基础重置与全局样式 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    background-color: #f1f5f9;
+    color: #1f2937;
+    display: flex;
+    justify-content: center; /* 页面整体居中 */
+}
+
+/* 主容器：限制宽度并居中，带卡片效果 */
+main {
+    width: 100%;
+    max-width: 560px;
+    padding: 32px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* 标题样式 */
+h1 {
+    font-size: 28px;
+    color: #1e40af;
+    margin: 0 0 24px;
+}
+
+/* 标签样式 */
+label {
+    font-size: 16px;
+    margin: 0 4px;
+}
+
+/* 输入框样式 */
+input {
+    width: 160px;
+    padding: 10px 12px;
+    margin: 8px 4px;
+    font-size: 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* 按钮样式 */
+button {
+    padding: 10px 24px;
+    margin: 16px 4px 8px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #2563eb;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* 结果区基础样式 */
+#result {
+    margin: 16px 0;
+    padding: 12px 16px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    min-height: 26px;
+}
+
+/* 不同状态对应的颜色 */
+#result.status-cold {
+    color: #1d4ed8;      /* 偏冷：蓝色 */
+    background-color: #dbeafe;
+}
+
+#result.status-hot {
+    color: #dc2626;      /* 偏热：红色 */
+    background-color: #fee2e2;
+}
+
+#result.status-humid {
+    color: #0891b2;      /* 偏湿：青色 */
+    background-color: #cffafe;
+}
+
+#result.status-normal {
+    color: #16a34a;      /* 正常：绿色 */
+    background-color: #dcfce7;
+}
+
+/* 历史记录区样式 */
+#history {
+    margin-top: 24px;
+    text-align: left;
+}
+
+/* 历史记录标题栏（标题 + 导出按钮） */
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+#history h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* 导出按钮：取消通用按钮的外边距，与标题对齐 */
+#exportBtn {
+    margin: 0;
+}
+
+/* 每条历史记录：分隔线 + 浅色背景 */
+.history-item {
+    padding: 8px 12px;
+    margin: 4px 0;
+    font-size: 14px;
+    background-color: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+    border-radius: 4px;
+}
+
+/* 摄像头拍照区 */
+#camera {
+    margin-top: 24px;
+    text-align: left;
+}
+
+#camera h2 {
+    font-size: 18px;
+    margin: 0 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+#video,
+#snapshot {
+    display: block;
+    max-width: 100%;
+    margin: 12px auto;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+
+/* 拍照前隐藏快照图片，避免出现破图图标 */
+#snapshot:not([src]) {
+    display: none;
+}
