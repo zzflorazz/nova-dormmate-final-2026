@@ -63,10 +63,16 @@ button {
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease; /* 悬停/按压过渡动画 */
 }
 
 button:hover {
     background-color: #1d4ed8;
+}
+
+button:active {
+    background-color: #1e40af;   /* 按下时更深的颜色 */
+    transform: translateY(1px);  /* 轻微下移，模拟按压反馈 */
 }
 
 /* 结果区基础样式 */
