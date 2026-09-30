@@ -10,6 +10,7 @@ const voiceBtn = document.getElementById('voiceBtn');             // "语音指�
 const cameraBtn = document.getElementById('cameraBtn');           // "开启摄像头"按钮
 const video = document.getElementById('video');                   // 摄像头预览
 const snapBtn = document.getElementById('snapBtn');               // "拍照"按钮
+const stopBtn = document.getElementById('stopBtn');               // "停止摄像头"按钮
 const canvas = document.getElementById('canvas');                 // 快照画布
 const snapshot = document.getElementById('snapshot');             // 快照图片
 
@@ -182,9 +183,22 @@ function takeSnapshot() {
     snapshot.src = canvas.toDataURL('image/png');
 }
 
+// 停止摄像头：关闭视频流并清空预览
+function stopCamera() {
+    if (stream) {
+        // 停止每一条媒体轨道（这里是视频轨道），释放摄像头
+        stream.getTracks().forEach(function (track) {
+            track.stop();
+        });
+        stream = null;
+    }
+    video.srcObject = null; // 清空预览画面
+}
+
 // 绑定摄像头按钮事件（用户主动点击才请求，不连续采集）
 cameraBtn.addEventListener('click', startCamera);
 snapBtn.addEventListener('click', takeSnapshot);
+stopBtn.addEventListener('click', stopCamera);
 
 // 朗读当前状态（文字转语音，使用浏览器自带 speechSynthesis）
 function speakCurrentStatus() {
